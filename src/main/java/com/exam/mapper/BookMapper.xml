@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.exam.mapper.BookMapper">
+ 
+   <!-- 상품목록 -->
+   <select id="booksList" resultType="BookDTO">
+     select 
+            book_session,
+            book_name,
+            book_author,
+            book_publisher,
+            book_price,
+            bImage
+     from book
+   </select>
+   
+   <!-- 상품 자세히고비 -->
+   <select id="booksRetrieve" parameterType="int" resultType="BookDTO">
+     select book_id,
+            book_session,
+            book_name,
+            book_author,
+            book_publisher,
+            book_price,
+            book_num,
+            bImage
+     from book
+     where book_id = #{book_id}
+   </select>
+   
+</mapper>
+
+
