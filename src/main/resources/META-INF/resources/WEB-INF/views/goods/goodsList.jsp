@@ -6,7 +6,7 @@
     <c:forEach var="dto" items="${booksList}">
         <div class="col border border-dark m-4 w-80">
             <a href="booksRetrieve?book_id=${dto.book_id}"> 
-                <img src="images/items/${dto.bImage}.gif" width="350" height="500">
+                <img src="images/items/${dto.bImage}.jpg" width="350" height="500">
             </a>
             <div class="mt-4 fs-6">${dto.book_name}</div>
             <div class="mt-2 fs-6">${dto.book_session}</div>
