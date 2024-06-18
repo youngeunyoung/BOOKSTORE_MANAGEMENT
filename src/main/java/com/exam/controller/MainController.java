@@ -10,27 +10,29 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.exam.dto.GoodsDTO;
-import com.exam.service.GoodsService;
+import com.exam.dto.BookDTO;
+import com.exam.service.BookService;
 
 @Controller
 public class MainController {
 	
 	Logger logger = LoggerFactory.getLogger(getClass());
 	
-	GoodsService goodsService;
+	BookService bookService;
 	
-	public MainController(GoodsService goodsService) {
-		this.goodsService = goodsService;
+	public MainController(BookService bookService) {
+		this.bookService = bookService;
 	}
 
 
 	@GetMapping("/main")
-	public String main(@RequestParam(required = false, defaultValue = "top") String gCategory,
+	public String main(@RequestParam(required = false, defaultValue = "top") String book_session,
 			           ModelMap m) {
 		
-		List<GoodsDTO> goodsList = goodsService.goodsList(gCategory);
-		m.addAttribute("goodsList", goodsList);
+		List<BookDTO> booksList = bookService.booksList();
+		System.out.println(booksList.toString());
+		System.out.println("======================");
+		m.addAttribute("booksList", booksList);
 		return "main";
 	}
 }
