@@ -9,21 +9,21 @@ public class BookDTO {
 	String book_name;
 	String book_session;
 	String book_author;
-	String book_publisehr;
+	String book_publisher;
 	String book_price;
 	int book_num;
 	String bImage;
 	
 	public BookDTO() {}
 
-	public BookDTO(int book_id, String book_name, String book_session, String book_author, String book_publisehr,
+	public BookDTO(int book_id, String book_name, String book_session, String book_author, String book_publisher,
 			String book_price, int book_num, String bImage) {
 		super();
 		this.book_id = book_id;
 		this.book_name = book_name;
 		this.book_session = book_session;
 		this.book_author = book_author;
-		this.book_publisehr = book_publisehr;
+		this.book_publisher = book_publisher;
 		this.book_price = book_price;
 		this.book_num = book_num;
 		this.bImage = bImage;
@@ -61,12 +61,12 @@ public class BookDTO {
 		this.book_author = book_author;
 	}
 
-	public String getBook_publisehr() {
-		return book_publisehr;
+	public String getBook_publisher() {
+		return book_publisher;
 	}
 
-	public void setBook_publisehr(String book_publisehr) {
-		this.book_publisehr = book_publisehr;
+	public void setBook_publisehr(String book_publisher) {
+		this.book_publisher = book_publisher;
 	}
 
 	public String getBook_price() {
@@ -96,7 +96,7 @@ public class BookDTO {
 	@Override
 	public String toString() {
 		return "BookDTO [book_id=" + book_id + ", book_name=" + book_name + ", book_session=" + book_session
-				+ ", book_author=" + book_author + ", book_publisehr=" + book_publisehr + ", book_price=" + book_price
+				+ ", book_author=" + book_author + ", book_publisher=" + book_publisher + ", book_price=" + book_price
 				+ ", book_num=" + book_num + ", bImage=" + bImage + "]";
 	}
 
