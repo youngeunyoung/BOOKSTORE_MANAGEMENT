@@ -30,8 +30,8 @@ public class MemberController {
 	}
 	
 	@GetMapping("/idCheck")
-	public @ResponseBody  String idCheck(@RequestParam String userid) {
-		MemberDTO dto = memberService.idCheck(userid);
+	public @ResponseBody  String idCheck(@RequestParam String member_id) {
+		MemberDTO dto = memberService.idCheck(member_id);
 		String mesg = "사용가능";
 		if(dto!=null) {
 			mesg = "사용불가";
@@ -69,9 +69,9 @@ public class MemberController {
 		// 세션에 저장된 MemberDTO 얻기
 		MemberDTO dto = (MemberDTO)m.getAttribute("login");
 		logger.info("logger:mypage:{}", dto);
-		String userid = dto.getUserid();
+		String member_id = dto.getMember_id();
 		
-		MemberDTO searchDTO = memberService.mypage(userid);
+		MemberDTO searchDTO = memberService.mypage(member_id);
 		m.addAttribute("login", searchDTO);
 		
 		return "mypage";

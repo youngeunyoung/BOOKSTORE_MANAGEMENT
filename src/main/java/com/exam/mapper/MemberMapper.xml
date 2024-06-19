@@ -9,15 +9,15 @@
    <select id="idCheck" parameterType="string" resultType="MemberDTO">
       select *
       from member
-      where userid=#{userid}
+      where member_id=#{member_id}
    </select>
  
    <!-- 회원가입 -->
   	<insert id="memberAdd" parameterType="MemberDTO">
-  	  insert into member (userid,passwd,username,post,addr1,addr2,
+  	  insert into member (member_id,passwd,name,post,addr1,addr2,
   	                     phone1, phone2, phone3, email1, email2
   	                    ) 
-  	  values(#{userid},#{passwd},#{username},#{post},#{addr1},#{addr2},
+  	  values(#{member_id},#{passwd},#{name},#{post},#{addr1},#{addr2},
   	                   #{phone1},#{phone2},#{phone3},#{email1},#{email2})
 
   	</insert>
@@ -25,14 +25,14 @@
   	<select id="login" parameterType="hashmap" resultType="MemberDTO">
   	  select *
       from member
-      where userid=#{userid} and passwd=#{passwd}
+      where member_id=#{member_id} and passwd=#{passwd}
   	</select>
   	
   	 <!-- mypage -->
    <select id="mypage" parameterType="string" resultType="MemberDTO">
       select *
       from member
-      where userid=#{userid}
+      where member_id=#{member_id}
    </select>
    
 </mapper>

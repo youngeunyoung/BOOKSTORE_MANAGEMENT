@@ -7,12 +7,12 @@ import org.apache.ibatis.type.Alias;
 @Alias("MemberDTO")
 public class MemberDTO {
 
-	String userid;
+	String member_id;
 	
 	@Size(min = 4, message = "4글자 이상입니다.")
 	String passwd;
 	
-	String username;
+	String name;
 	String post;
 	String addr1;
 	String addr2;
@@ -24,12 +24,12 @@ public class MemberDTO {
 	
 	public MemberDTO() {}
 
-	public MemberDTO(String userid, String passwd, String username, String post, String addr1, String addr2,
-			String phone1, String phone2, String phone3, String email1, String email2) {
+	public MemberDTO(String member_id, @Size(min = 4, message = "4글자 이상입니다.") String passwd, String name, String post,
+			String addr1, String addr2, String phone1, String phone2, String phone3, String email1, String email2) {
 		super();
-		this.userid = userid;
+		this.member_id = member_id;
 		this.passwd = passwd;
-		this.username = username;
+		this.name = name;
 		this.post = post;
 		this.addr1 = addr1;
 		this.addr2 = addr2;
@@ -40,12 +40,12 @@ public class MemberDTO {
 		this.email2 = email2;
 	}
 
-	public String getUserid() {
-		return userid;
+	public String getMember_id() {
+		return member_id;
 	}
 
-	public void setUserid(String userid) {
-		this.userid = userid;
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
 	}
 
 	public String getPasswd() {
@@ -56,12 +56,12 @@ public class MemberDTO {
 		this.passwd = passwd;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getName() {
+		return name;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPost() {
@@ -130,8 +130,10 @@ public class MemberDTO {
 
 	@Override
 	public String toString() {
-		return "MemberDTO [userid=" + userid + ", passwd=" + passwd + ", username=" + username + ", post=" + post
+		return "MemberDTO [member_id=" + member_id + ", passwd=" + passwd + ", name=" + name + ", post=" + post
 				+ ", addr1=" + addr1 + ", addr2=" + addr2 + ", phone1=" + phone1 + ", phone2=" + phone2 + ", phone3="
 				+ phone3 + ", email1=" + email1 + ", email2=" + email2 + "]";
 	}
+
+	
 }

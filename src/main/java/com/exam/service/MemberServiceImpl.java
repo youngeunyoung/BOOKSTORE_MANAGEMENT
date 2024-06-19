@@ -17,8 +17,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public MemberDTO idCheck(String userid) {
-		return memberMapper.idCheck(userid);
+	public MemberDTO idCheck(String member_id) {
+		return memberMapper.idCheck(member_id);
 	}
 
 	@Override
@@ -32,8 +32,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public MemberDTO mypage(String userid) {
-		return memberMapper.mypage(userid);
+	public MemberDTO mypage(String member_id) {
+		return memberMapper.mypage(member_id);
 	}
 
 }
