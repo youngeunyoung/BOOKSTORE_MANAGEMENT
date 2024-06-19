@@ -6,20 +6,20 @@
 <div class="container">
     <form class="row g-3 m-4">
 		  <div class="row mb-3">
-		    <label for="userid" class="col-sm-2 col-form-label">	아이디</label>
+		    <label for="member_id" class="col-sm-2 col-form-label">	아이디</label>
 		    <div class="col-auto">
-		      <input type="text" class="form-control" id="userid" name="userid" 
-		       value="${login.userid}"
+		      <input type="text" class="form-control" id="member_id" name="member_id" 
+		       value="${login.member_id}"
 		       disabled="disabled">
 		    </div>
 		  </div>
 		
 		  <div class="row mb-3">
-		    <label for="username" class="col-sm-2 col-form-label">이름</label>
+		    <label for="name" class="col-sm-2 col-form-label">이름</label>
 		    <div class="col-auto">
-		      <input type="text" class="form-control" name="username" 
-		      id="username"
-		       value="${login.username}"
+		      <input type="text" class="form-control" name="name" 
+		      id="name"
+		       value="${login.name}"
 		       disabled="disabled">
 		    </div>
 		  </div>

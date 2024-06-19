@@ -22,9 +22,9 @@
 		      <div>${errorMessage}</div>
 		  </div>  
 		  <div class="row mb-3">
-		    <label for="userid" class="col-sm-2 col-form-label">아이디</label>
+		    <label for="member_id" class="col-sm-2 col-form-label">아이디</label>
 		    <div class="col-auto">
-		      <input type="text" class="form-control" id="userid" name="userid">
+		      <input type="text" class="form-control" id="member_id" name="member_id">
 		    </div>
 		  </div>
 		 <div class="row mb-3">

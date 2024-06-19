@@ -25,7 +25,7 @@
                    url:"idCheck",   // MemberIdCheckServlet
                    dataType:'text', // 응답되는 데이터타입, 반환값(사용가능|사용불가)
                    data:{
-                	   userid:$("#userid").val()
+                	   member_id:$("#member_id").val()
                    },
                    success:function(data, status, xhr){
                        console.log("data:", data);
@@ -57,9 +57,9 @@
 <div class="container">
     <form:form class="row g-3 m-4" modelAttribute="memberDTO" method="post">
 		  <div class="row mb-3">
-		    <label for="userid" class="col-sm-2 col-form-label">*아이디</label>
+		    <label for="member_id" class="col-sm-2 col-form-label">*아이디</label>
 		    <div class="col-auto">
-		      <form:input type="text" class="form-control"  path="userid" />
+		      <form:input type="text" class="form-control"  path="member_id" />
 		    </div>
 		    <div class="col-auto">
 			    <button type="button" class="btn btn-primary mb-3" id="idDupulicatedcheck">아이디중복</button>
@@ -85,9 +85,9 @@
 		    </div>
 		  </div>
 		  <div class="row mb-3">
-		    <label for="username" class="col-sm-2 col-form-label">이름</label>
+		    <label for="name" class="col-sm-2 col-form-label">이름</label>
 		    <div class="col-auto">
-		      <form:input type="text" class="form-control" path="username" />
+		      <form:input type="text" class="form-control" path="name" />
 		    </div>
 		  </div>
 		  <hr>
