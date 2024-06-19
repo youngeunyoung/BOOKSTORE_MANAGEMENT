@@ -24,13 +24,28 @@ public class MainController {
 		this.bookService = bookService;
 	}
 
-
 	@GetMapping("/main")
+    public String main(@RequestParam(defaultValue = "1") int page,
+                       @RequestParam(defaultValue = "6") int size,
+                       ModelMap m) {
+        
+        List<BookDTO> booksList = bookService.booksList(page, size);
+        int totalBooks = bookService.booksCount();
+        int totalPages = (int) Math.ceil((double) totalBooks / size);
+
+        m.addAttribute("booksList", booksList);
+        m.addAttribute("currentPage", page);
+        m.addAttribute("totalPages", totalPages);
+        m.addAttribute("pageSize", size);
+        return "main";
+    }
+
+	/*@GetMapping("/main")
 	public String main(@RequestParam(required = false, defaultValue = "2") int session_id,
 			           ModelMap m) {
 		
 		List<BookDTO> booksList = bookService.booksList();
 		m.addAttribute("booksList", booksList);
 		return "main";
-	}
+	}*/
 }

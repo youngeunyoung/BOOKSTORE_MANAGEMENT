@@ -15,6 +15,7 @@
             book_price,
             bImage
      from book
+     LIMIT #{limit} OFFSET #{offset}
    </select>
    
    <!-- 상품 자세히고비 -->
@@ -30,6 +31,11 @@
      from book
      where book_id = #{book_id}
    </select>
+   
+   <!-- 페이지 구분 -->
+   <select id="booksCount" resultType="int">
+        SELECT COUNT(*) FROM book
+    </select>
    
 </mapper>
 
