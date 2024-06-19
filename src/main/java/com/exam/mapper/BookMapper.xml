@@ -8,7 +8,7 @@
    <!-- 상품목록 -->
    <select id="booksList" resultType="BookDTO">
      select 
-            book_session,
+            session_id,
             book_name,
             book_author,
             book_publisher,
@@ -20,7 +20,7 @@
    <!-- 상품 자세히고비 -->
    <select id="booksRetrieve" parameterType="int" resultType="BookDTO">
      select book_id,
-            book_session,
+            session_id,
             book_name,
             book_author,
             book_publisher,

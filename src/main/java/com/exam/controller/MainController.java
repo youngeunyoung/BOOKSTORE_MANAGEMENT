@@ -26,12 +26,10 @@ public class MainController {
 
 
 	@GetMapping("/main")
-	public String main(@RequestParam(required = false, defaultValue = "top") String book_session,
+	public String main(@RequestParam(required = false, defaultValue = "2") int session_id,
 			           ModelMap m) {
 		
 		List<BookDTO> booksList = bookService.booksList();
-		System.out.println(booksList.toString());
-		System.out.println("======================");
 		m.addAttribute("booksList", booksList);
 		return "main";
 	}
