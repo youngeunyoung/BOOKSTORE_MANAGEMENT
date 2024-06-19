@@ -13,11 +13,13 @@ public class BookDTO {
 	int book_price;
 	int book_num;
 	String bImage;
+	String book_session;
+	
 	
 	public BookDTO() {}
 
 	public BookDTO(int book_id, int session_id, String book_name, String book_author, String book_publisher,
-			int book_price, int book_num, String bImage) {
+			int book_price, int book_num, String bImage, String book_session) {
 		super();
 		this.book_id = book_id;
 		this.session_id = session_id;
@@ -27,7 +29,17 @@ public class BookDTO {
 		this.book_price = book_price;
 		this.book_num = book_num;
 		this.bImage = bImage;
+		this.book_session = book_session;
 	}
+
+	public String getBook_session() {
+		return book_session;
+	}
+
+	public void setBook_session(String book_session) {
+		this.book_session = book_session;
+	}
+
 
 	public int getBook_id() {
 		return book_id;
@@ -97,8 +109,9 @@ public class BookDTO {
 	public String toString() {
 		return "BookDTO [book_id=" + book_id + ", session_id=" + session_id + ", book_name=" + book_name
 				+ ", book_author=" + book_author + ", book_publisher=" + book_publisher + ", book_price=" + book_price
-				+ ", book_num=" + book_num + ", bImage=" + bImage + "]";
+				+ ", book_num=" + book_num + ", bImage=" + bImage + ", book_session=" + book_session + "]";
 	}
+
 
 	
 
