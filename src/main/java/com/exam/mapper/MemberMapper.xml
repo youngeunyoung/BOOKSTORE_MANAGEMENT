@@ -35,6 +35,21 @@
       where member_id=#{member_id}
    </select>
    
+   
+    <!-- mypage 업데이트 -->
+   <update id="updateProfile" parameterType="MemberDTO">
+      update member
+      set 
+        post = #{post},
+        addr1 = #{addr1},
+        addr2 = #{addr2},
+        phone1 = #{phone1},
+        phone2 = #{phone2},
+        phone3 = #{phone3},
+        email1 = #{email1},
+        email2 = #{email2}
+      where member_id = #{member_id}
+   </update>
 </mapper>
 
 

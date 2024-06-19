@@ -21,7 +21,7 @@ public class MemberDTO {
 	String phone3;
 	String email1;
 	String email2;
-	
+
 	public MemberDTO() {}
 
 	public MemberDTO(String member_id, @Size(min = 4, message = "4글자 이상입니다.") String passwd, String name, String post,

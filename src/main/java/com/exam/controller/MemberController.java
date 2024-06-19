@@ -1,5 +1,7 @@
 package com.exam.controller;
 
+import java.util.Map;
+
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -49,14 +51,20 @@ public class MemberController {
 		return "memberForm";
 	}
 	@PostMapping("/signup")
-	public String signup(@Valid MemberDTO  dto, BindingResult result) {
+	public String signup(@Valid MemberDTO  dto, BindingResult result,@RequestParam Map<String, String> params) {
 		
 		if(result.hasErrors()) {
 			return "memberForm";
 		}
+		 String email1 = params.get("email1");
+		  String email2 = params.get("email2").equals("direct") ? params.get("email2Direct") : params.get("email2");
+
+		  dto.setEmail1(email1);
+		  dto.setEmail2(email2);
 		//DB연동
 		logger.info("logger:signup:{}", dto);
 		
+		//회원가입서비스호출
 		int n = memberService.memberAdd(dto);
 		
 		return "redirect:main";
@@ -75,6 +83,34 @@ public class MemberController {
 		m.addAttribute("login", searchDTO);
 		
 		return "mypage";
+	}
+	@PostMapping("/updateProfile")
+	public String updateProfile(@Valid MemberDTO dto, BindingResult result, @RequestParam Map<String, String> params, ModelMap m) {
+	    if (result.hasErrors()) {
+	        return "errorPage"; // 에러 처리 페이지로 리다이렉트 또는 메시지 출력
+	    }
+
+	    String email1 = params.get("email1");
+	    String email2 = params.get("email2").equals("direct") ? params.get("email2Direct") : params.get("email2");
+	    String phone1 = params.get("phone1");
+	    String phone2 = params.get("phone2");
+	    String phone3 = params.get("phone3");
+
+	    dto.setEmail1(email1);
+	    dto.setEmail2(email2);
+	    dto.setPhone1(phone1);
+	    dto.setPhone2(phone2);
+	    dto.setPhone3(phone3);
+
+	    int n = memberService.updateProfile(dto);
+
+	    if (n > 0) {
+	        // 업데이트 성공 시 세션 정보도 업데이트합니다.
+	        m.addAttribute("login", dto);
+	        return "redirect:mypage";
+	    } else {
+	        return "errorPage"; // 업데이트 실패 시 에러 처리 페이지로 리다이렉트 또는 메시지 출력
+	    }
 	}
 	
 }

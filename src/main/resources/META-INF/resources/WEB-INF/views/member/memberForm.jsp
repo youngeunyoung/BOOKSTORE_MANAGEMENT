@@ -39,15 +39,25 @@
                });
 		}); // id 중복 체크
 		
-		// 회원가입 서브밋
-	/* 	$("form").on("submit", function(){
-			alert("memberForm submit");
-			this.action="MemberAddServlet";  //MemberAddServlet의 맵핑값
-			this.method="post";
-		}); */
-		
-		
-		
+		// 이메일 선택 시 email2Direct 필드 활성화
+		  $("#email2").on("change", function() {
+		    if ($("#email2").val() === 'direct') {
+		      $("#email2DirectDiv").show();
+		      $("#email2Direct").prop("disabled", false);
+		    } else {
+		      $("#email2DirectDiv").hide();
+		      $("#email2Direct").prop("disabled", true).val('');
+		    }
+		  });
+
+		  // 폼 서브밋 시 이메일 합치기
+		  $("form").on("submit", function() {
+		    var email1 = $("#email1").val();
+		    var email2 = $("#email2").val();
+		    var email2Direct = $("#email2Direct").val();
+		    var combinedEmail = email1 + "@" + (email2 === 'direct' ? email2Direct : email2);
+		    $("#email_combined").val(combinedEmail); // 숨은 필드에 합친 이메일 주소 저장
+		  });
 		
 	});// ready()
 
@@ -139,17 +149,16 @@
 			  <span>@</span>
 			</div>
 			<div class="col-auto">
-			  <label for="email2" class="visually-hidden">이메일2</label>
-			  <input type="text" name="email2" class="form-control" id="email2" placeholder="직접입력">
-			</div>
-			<label for="email3" class="visually-hidden">이메일2</label>
-		     <div class="col-auto">
-		      <select name="email3" class="form-control" id="email3">
-				  <option value="daum.net">daum.net</option>
-	 			  <option value="google.com">google.com</option>
-	              <option value="naver.com">naver.com</option>
-				</select>
-			   </div>	
+    			<select name="email2" class="form-control" id="email2">
+      				<option value="daum.net">daum.net</option>
+     				 <option value="google.com">google.com</option>
+     				 <option value="naver.com">naver.com</option>
+    				 <option value="direct">직접입력</option>
+   				 </select>
+  			</div>
+  			<div class="col-auto" id="email2DirectDiv" style="display:none;">
+    			<input type="text" name="email2Direct" class="form-control" id="email2Direct" placeholder="직접입력">
+  			</div>
 		  </div>
 		  <div class="col-12">
 		    <button type="submit" class="btn btn-primary">Sign in</button>
