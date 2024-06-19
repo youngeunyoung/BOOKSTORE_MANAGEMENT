@@ -27,16 +27,20 @@ public class MainController {
 	@GetMapping("/main")
     public String main(@RequestParam(defaultValue = "1") int page,
                        @RequestParam(defaultValue = "6") int size,
+                       @RequestParam(defaultValue = "1") int session_id,
                        ModelMap m) {
-        
-        List<BookDTO> booksList = bookService.booksList(page, size);
-        int totalBooks = bookService.booksCount();
+		
+		
+		int offset = (page - 1) * size;
+		List<BookDTO> booksList = bookService.getBooksBySessionIdPaged(session_id, size, offset);
+        int totalBooks = bookService.getBooksCountBySessionId(session_id);
         int totalPages = (int) Math.ceil((double) totalBooks / size);
 
         m.addAttribute("booksList", booksList);
         m.addAttribute("currentPage", page);
         m.addAttribute("totalPages", totalPages);
         m.addAttribute("pageSize", size);
+        m.addAttribute("session_id", session_id);
         return "main";
     }
 

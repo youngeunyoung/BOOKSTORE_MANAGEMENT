@@ -6,7 +6,9 @@ import com.exam.dto.BookDTO;
 
 public interface BookService {
 
-	public List<BookDTO> booksList(int page, int size);
+	public List<BookDTO> booksList();
 	public BookDTO booksRetrieve(int book_id);
-	int booksCount();
+	public List<BookDTO> getBooksBySessionIdPaged(int session_id, int size, int offset);
+    int getBooksCountBySessionId(int session_id);
+	
 }
