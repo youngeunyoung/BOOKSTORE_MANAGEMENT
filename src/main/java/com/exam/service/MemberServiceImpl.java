@@ -2,6 +2,8 @@ package com.exam.service;
 
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Service;
 
 import com.exam.dto.MemberDTO;
@@ -34,6 +36,10 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public MemberDTO mypage(String member_id) {
 		return memberMapper.mypage(member_id);
+	}
+	@Override
+	public int updateProfile(@Valid MemberDTO dto) {
+		return memberMapper.updateProfile(dto);
 	}
 
 }
