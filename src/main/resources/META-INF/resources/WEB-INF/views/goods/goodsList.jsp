@@ -9,7 +9,7 @@
                 <img src="images/items/${dto.bImage}.jpg" width="350" height="550">
             </a>
             <div class="mt-4 fs-6">${dto.book_name}</div>
-            <div class="mt-2 fs-6">${dto.book_session}</div>
+            <div class="mt-2 fs-6">${dto.session_id}</div>
             <div class="mt-2 fs-6">${dto.book_price}</div>
             <div class="mt-2 fs-6">${dto.book_author}</div>
             <div class="mt-2 fs-6">${dto.book_publisher}</div>
