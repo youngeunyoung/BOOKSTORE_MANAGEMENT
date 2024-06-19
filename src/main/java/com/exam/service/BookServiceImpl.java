@@ -18,13 +18,19 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
-	public List<BookDTO> booksList() {
-		return bookMapper.booksList();
+	public List<BookDTO> booksList(int page, int size) {
+		int offset = (page -1) * size;
+		return bookMapper.booksList(size,offset);
 	}
 
 	@Override
 	public BookDTO booksRetrieve(int book_id) {
 		return bookMapper.booksRetrieve(book_id);
+	}
+	
+	@Override
+	public int booksCount() {
+		return bookMapper.booksCount();
 	}
 
 }

@@ -16,6 +16,33 @@
             <div class="mt-2 fs-6">${dto.book_num}</div>
         </div>
     </c:forEach>
- 
+  </div>
+  
+  <div class="row">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <c:if test="${currentPage > 1}">
+          <li class="page-item">
+            <a class="page-link" href="main?page=${currentPage - 1}&size=${pageSize}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+        </c:if>
+
+        <c:forEach var="i" begin="1" end="${totalPages}">
+          <li class="page-item ${i == currentPage ? 'active' : ''}">
+            <a class="page-link" href="main?page=${i}&size=${pageSize}">${i}</a>
+          </li>
+        </c:forEach>
+
+        <c:if test="${currentPage < totalPages}">
+          <li class="page-item">
+            <a class="page-link" href="main?page=${currentPage + 1}&size=${pageSize}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </c:if>
+      </ul>
+    </nav>
   </div>
 </div>
