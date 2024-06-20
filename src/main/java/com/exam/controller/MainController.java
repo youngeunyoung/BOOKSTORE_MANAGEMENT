@@ -52,6 +52,18 @@ public class MainController {
 		m.addAttribute("bookAll", bookAll);
         return "main2";
     }
+	//booksRetrieve?book_id=1
+	//booksRetrieve?book_id=1
+		
+	@GetMapping("/booksRetrieve")
+    public String booksRetrieve(ModelMap m,int book_id) {
+		System.out.println("==============");
+		System.out.println(book_id);
+		BookDTO booksRetrieve = bookService.booksRetrieve(book_id);
+		m.addAttribute("booksRetrieve", booksRetrieve);
+		
+        return "goodsRetrieve";
+    }
 	
 	
 	
