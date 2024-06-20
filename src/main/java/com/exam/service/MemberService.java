@@ -11,5 +11,5 @@ public interface MemberService {
 	public int memberAdd(MemberDTO dto);
 	public MemberDTO login(Map<String, String> map );
 	public MemberDTO mypage(String member_id);
-	public int updateProfile(@Valid MemberDTO dto);
+	public void updateMypage(MemberDTO updatedDTO);
 }

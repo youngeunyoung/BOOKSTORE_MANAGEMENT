@@ -1,29 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script src="webjars/jquery/3.7.1/jquery.min.js"></script> 
-<script type="text/javascript">
-    $(document).ready(function() {
-        // 페이지 로드 시 이메일 선택값에 따라 직접 입력 필드를 보이거나 숨깁니다.
-        if ($('#email2').val() == 'direct') {
-            $('#email2Direct').show();
-        } else {
-            $('#email2Direct').hide();
-        }
-        
-        // 이메일 선택값 변경 시 직접 입력 필드를 보이거나 숨깁니다.
-        $('#email2').change(function() {
-            if ($(this).val() == 'direct') {
-                $('#email2Direct').show();
-            } else {
-                $('#email2Direct').hide();
-            }
-        });
-    });
-</script>
-	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="container">
-    <form class="row g-3 m-4" action="updateProfile" method="post">
+    <form class="row g-3 m-4" action="/shop/mypage" method="post">
 		  <div class="row mb-3">
 		    <label for="member_id" class="col-sm-2 col-form-label">	아이디</label>
 		    <div class="col-auto">
@@ -75,14 +55,14 @@
 		     <div class="col-auto">
 		      <select name="phone1" class="form-control" id="phone1">
 			      <option value="010" 
-					<c:if test="${login.phone1 == '010'}">
-					  selected
-					</c:if>	
+						<c:if test="${login.phone1 == '010'}">
+						selected
+						</c:if>
 				  >010</option>
 	             <option value="011" 
-	                 <c:if test="${login.phone1 == '011'}">
-					  selected
-					</c:if>	   
+	                    <c:if test="${login.phone1 == '011'}">
+						selected
+						</c:if>
 	             >011</option>
 			 </select>
 			   </div>	
@@ -112,18 +92,10 @@
 			</div>
 			<div class="col-auto">
 			  <label for="email2" class="visually-hidden">이메일2</label>
-			  <select name="email2" class="form-control" id="email2">
-            	<option value="naver.com" <c:if test="${login.email2 == 'naver.com'}">selected</c:if>>naver.com</option>
-           		<option value="google.com" <c:if test="${login.email2 == 'google.com'}">selected</c:if>>google.com</option>
-            	<option value="direct" <c:if test="${login.email2 != 'naver.com' && login.email2 != 'google.com'}">selected</c:if>>직접입력</option>
-        		</select>
-			  <!--  <input type="text" name="email2" 
+			  <input type="text" name="email2" 
 			         value="${login.email2}"
-			   class="form-control" id="email2" placeholder="직접입력">-->
+			   class="form-control" id="email2" placeholder="직접입력">
 			</div>
-			<div class="col-auto">
-       		 <input type="text" name="email2Direct" value="${login.email2}" class="form-control" id="email2Direct" placeholder="직접입력" <c:if test="${login.email2 != 'direct'}">style="display:none;"</c:if>>
-   			 </div>
 		  </div>
 		  <div class="col-12">
 		    <button type="submit" class="btn btn-primary">update</button>

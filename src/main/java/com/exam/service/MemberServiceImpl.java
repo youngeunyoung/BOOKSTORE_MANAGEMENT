@@ -37,9 +37,10 @@ public class MemberServiceImpl implements MemberService{
 	public MemberDTO mypage(String member_id) {
 		return memberMapper.mypage(member_id);
 	}
+	
 	@Override
-	public int updateProfile(@Valid MemberDTO dto) {
-		return memberMapper.updateProfile(dto);
+	public void updateMypage(MemberDTO updatedDTO) {
+	    memberMapper.updateMypage(updatedDTO);
 	}
 
 }
