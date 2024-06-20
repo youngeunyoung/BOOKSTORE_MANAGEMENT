@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -71,47 +72,31 @@ public class MemberController {
 	}
 	
 	
-	@GetMapping("/mypage")
-	public String mypage(ModelMap m) {
-		
-		// 세션에 저장된 MemberDTO 얻기
-		MemberDTO dto = (MemberDTO)m.getAttribute("login");
-		logger.info("logger:mypage:{}", dto);
-		String member_id = dto.getMember_id();
-		
-		MemberDTO searchDTO = memberService.mypage(member_id);
-		m.addAttribute("login", searchDTO);
-		
-		return "mypage";
-	}
-	@PostMapping("/updateProfile")
-	public String updateProfile(@Valid MemberDTO dto, BindingResult result, @RequestParam Map<String, String> params, ModelMap m) {
-	    if (result.hasErrors()) {
-	        return "errorPage"; // 에러 처리 페이지로 리다이렉트 또는 메시지 출력
-	    }
-
-	    String email1 = params.get("email1");
-	    String email2 = params.get("email2").equals("direct") ? params.get("email2Direct") : params.get("email2");
-	    String phone1 = params.get("phone1");
-	    String phone2 = params.get("phone2");
-	    String phone3 = params.get("phone3");
-
-	    dto.setEmail1(email1);
-	    dto.setEmail2(email2);
-	    dto.setPhone1(phone1);
-	    dto.setPhone2(phone2);
-	    dto.setPhone3(phone3);
-
-	    int n = memberService.updateProfile(dto);
-
-	    if (n > 0) {
-	        // 업데이트 성공 시 세션 정보도 업데이트합니다.
-	        m.addAttribute("login", dto);
-	        return "redirect:mypage";
-	    } else {
-	        return "errorPage"; // 업데이트 실패 시 에러 처리 페이지로 리다이렉트 또는 메시지 출력
-	    }
-	}
+	// 마이페이지 조회
+    @GetMapping("/mypage")
+    public String mypage(@ModelAttribute("login") MemberDTO dto, ModelMap m) {
+        logger.info("logger:mypage:{}", dto);
+        String member_id = dto.getMember_id();
+        
+        MemberDTO searchDTO = memberService.mypage(member_id);
+        m.addAttribute("login", searchDTO);
+        
+        return "mypage";
+    }
+    
+    // 마이페이지 정보 업데이트 처리
+    @PostMapping("/mypage")
+    public String updateMypage(@Valid @ModelAttribute("login") MemberDTO updatedDTO, BindingResult result) {
+        if (result.hasErrors()) {
+        	System.out.println("실패");
+            // 유효성 검사 에러가 발생할 경우 처리
+            return "mypage"; // 다시 마이페이지 폼으로 돌아감
+        }
+        
+        memberService.updateMypage(updatedDTO); // 서비스를 통해 정보 업데이트
+        System.out.println("성공");
+        return "redirect:mypage"; // 업데이트 후 다시 마이페이지로 리다이렉트
+    }
 	
 }
 
