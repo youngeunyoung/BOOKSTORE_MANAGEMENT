@@ -17,7 +17,7 @@
      		book_num,
      		bImage
      from book
-     inner join book_session on book.session_id = book_session.session_id;
+     inner join book_session on book.session_id = book_session.session_id order by book_id;
    </select>
    
    <!-- 상품 자세히고비 -->

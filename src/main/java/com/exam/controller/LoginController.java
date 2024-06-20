@@ -42,7 +42,7 @@ public class LoginController {
 		if(dto!=null) {
 			// 세션에 저장
 			model.addAttribute("login", dto);  // sesssion scope에 저장
-			return "redirect:main";
+			return "redirect:main2";
 		}
 		model.addAttribute("errorMessage", "아이디 및 비번 확인 필요."); // request scope에 저장
 		return "loginForm";
