@@ -31,7 +31,7 @@
             book_num,
             bImage
      from book
-     inner join book_session on book.session_id = book_session.session_id;
+     inner join book_session on book.session_id = book_session.session_id
      where book_id = #{book_id}
    </select>
    
