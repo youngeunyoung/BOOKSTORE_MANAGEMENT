@@ -43,6 +43,7 @@
             book_author,
             book_publisher,
             book_price,
+            book_num,
             bImage
      FROM book
      WHERE session_id = #{session_id}

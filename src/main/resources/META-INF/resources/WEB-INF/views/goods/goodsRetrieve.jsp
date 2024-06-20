@@ -9,16 +9,16 @@
 	
 		$("#up").on("click", function(){
 			
-			 var gAmount = Number.parseInt(  $("#gAmount").val() );
-			 $("#gAmount").val(gAmount+1);
+			 var quantity = Number.parseInt(  $("#quantity").val() );
+			 $("#quantity").val(quantity+1);
 		});
 
 		$("#down").on("click", function(){
-			var gAmount = Number.parseInt(  $("#gAmount").val() );
-			if(gAmount==1){
-				$("#gAmount").val(1);
+			var quantity = Number.parseInt(  $("#quantity").val() );
+			if(quantity==1){
+				$("#quantity").val(1);
 			}else{
-				$("#gAmount").val(gAmount-1);
+				$("#quantity").val(quantity-1);
 			}
 		});
 		// 장바구니 서브밋
@@ -61,7 +61,7 @@
 			 <h6 class="card-text">
 			 
 			      <span class="fw-bold ">주문수량:</span>
-			      <input type="text" name="gAmount" value="1" id="gAmount">
+			      <input type="text" name="quantity" value="1" id="quantity">
 			      <img src="images/up.PNG" id="up"> 
 			      <img src="images/down.PNG" id="down">
 		     
