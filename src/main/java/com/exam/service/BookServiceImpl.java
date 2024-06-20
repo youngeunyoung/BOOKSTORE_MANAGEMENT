@@ -29,6 +29,7 @@ public class BookServiceImpl implements BookService{
 	
 	 @Override
 	    public List<BookDTO> getBooksBySessionIdPaged(int session_id, int size, int offset) {
+		
 	        return bookMapper.getBooksBySessionIdPaged(session_id, size, offset);
 	    }
 

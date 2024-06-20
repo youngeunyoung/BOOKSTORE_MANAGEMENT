@@ -8,7 +8,7 @@
                         <div class="navbar-collapse">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="main?session_id=1">베스트</a>
+                                    <a class="nav-link" href="main2">베스트</a>
                                 </li>
                             </ul>
                             <ul class="navbar-nav">
@@ -28,7 +28,7 @@
                             </ul>
                               <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="main?ssession_id=5">만화</a>
+                                    <a class="nav-link" href="main?session_id=5">만화</a>
                                 </li>
                             </ul>
                         </div>
