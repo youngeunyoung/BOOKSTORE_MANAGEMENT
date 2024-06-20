@@ -8,7 +8,7 @@
                         <div class="collapse navbar-collapse">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="main">Home</a>
+                                    <a class="nav-link" href="main2">Home</a>
                                 </li>
        
                             </ul>
