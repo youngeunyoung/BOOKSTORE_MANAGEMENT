@@ -12,6 +12,11 @@
 			this.method="post";
 		});
 		
+		$("form").on("reset", function(){
+			alert("로그인 하지 않기");
+			this.action="login";  
+		});
+		
 	});// ready()
 
 </script>
