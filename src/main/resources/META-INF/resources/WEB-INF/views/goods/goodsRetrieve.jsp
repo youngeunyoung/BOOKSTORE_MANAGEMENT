@@ -11,23 +11,22 @@
 		$("#up").on("click", function(){
 
 
-		    var gAmount = Number.parseInt($("#quantity").val());
+		    var gAmount = Number.parseInt($("#gAmount").val());
 		    var currentStock = Number.parseInt($("#currentStock").val());
 		    if (gAmount < currentStock) {
-		        $("#quantity").val(gAmount+1);
+		        $("#gAmount").val(gAmount+1);
 		    } else {
-		        $("#quantity").val(currentStock);
+		        $("#gAmount").val(currentStock);
 		        alert("현재 재고 수량을 초과하여 더 이상 증가할 수 없습니다.");
 		    }
 
 		});
 
 		$("#down").on("click", function(){
-			var gAmount = Number.parseInt($("#gAmount").val());
-		    var currentStock = Number.parseInt($("#currentStock").val());
+			var gAmount = Number.parseInt(  $("#gAmount").val() );
 			if(gAmount==1){
 				$("#gAmount").val(1)
-				alert("최소 1개 이상의 수량을 선택하셔야 합니다.");
+				alert("최소 1개 이상의 상품을 선택하셔야 합니다.");
 			}else{
 				$("#gAmount").val(gAmount-1);
 			}
@@ -77,7 +76,7 @@
 			 <h6 class="card-text">
 			 
 			      <span class="fw-bold ">주문수량:</span>
-			      <input type="text" name="quantity" value="1" id="quantity">
+			      <input type="text" name="gAmount" value="1" id="gAmount">
 			      <input type="hidden" name="currentStock" value="${booksRetrieve.book_num}" id="currentStock">
 			      <img src="images/up.PNG" id="up"> 
 			      <img src="images/down.PNG" id="down">
