@@ -48,7 +48,7 @@ public class CartController {
      // 카트 등록
      int result = cartService.addCart(cart);
      		
-     // 장바구니 페이지로 리디렉션
+     // 장바구니 페이지로 리디렉션..
      return "redirect:/cart";
 	}	
 	
