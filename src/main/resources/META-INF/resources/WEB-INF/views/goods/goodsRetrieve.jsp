@@ -23,11 +23,13 @@
 		});
 
 		$("#down").on("click", function(){
-			var quantity = Number.parseInt(  $("#quantity").val() );
-			if(quantity==1){
-				$("#quantity").val(1);
+			var gAmount = Number.parseInt($("#gAmount").val());
+		    var currentStock = Number.parseInt($("#currentStock").val());
+			if(gAmount==1){
+				$("#gAmount").val(1)
+				alert("최소 1개 이상의 수량을 선택하셔야 합니다.");
 			}else{
-				$("#quantity").val(quantity-1);
+				$("#gAmount").val(gAmount-1);
 			}
 		});
 		
