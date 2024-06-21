@@ -49,6 +49,22 @@
             email2 = #{email2}
         WHERE member_id = #{member_id}
     </update>
+    
+    <!--  주문자 정보 -->
+    <select id="getMemberInfo" parameterType="String" resultType="MemberDTO">
+  		select member_id,
+  				name,
+  				post,
+  				addr1,
+  				addr2,
+  				phone1,
+  				phone2,
+  				phone3,
+  				email1,
+  				email2
+  		from member
+  		where member_id = #{member_id}
+  	</select>
 </mapper>
 
 
