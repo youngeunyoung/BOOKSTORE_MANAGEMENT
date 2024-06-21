@@ -101,8 +101,10 @@
 		    <button type="submit" class="btn btn-primary">update</button>
 		    <button type="reset" class="btn btn-primary">cancel</button>
 		  </div>
+
  </form>
-	
+			  <div>${errorMessage}</div>
+		  <div>${successMessage}</div>
 </div>
 
 
@@ -158,4 +160,18 @@
             }
         }).open();
     }
+    $(document).ready(function(){
+    	
+		// 회원가입 서브밋
+		$("form").on("submit", function(){
+			alert("변경 성공");
+			this.action="mypage";  
+			this.method="post";
+		});
+		
+		$("form").on("reset", function(){
+			alert("다음에 변경하기");
+			this.action="mypage";
+		});
+    });// ready()	
 </script>

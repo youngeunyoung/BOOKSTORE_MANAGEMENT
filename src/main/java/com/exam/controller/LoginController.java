@@ -51,7 +51,7 @@ public class LoginController {
 	@GetMapping("/logout")
 	public String logout(SessionStatus status) {
 		status.setComplete();
-		return "redirect:main";
+		return "redirect:main2";
 	}
 	
 }
