@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -63,8 +64,10 @@ public class CartController {
 	}
 	
 	@PostMapping("/cart/delete")
-	public String deleteCartPOST(int cart_num) {
+	public String deleteCartPOST(@RequestParam int cart_num) {
+		System.out.println(cart_num);
+		System.out.println("====================");
 	    cartService.deleteCart(cart_num);
-	    return "redirect:/cart/{member_id}";
+	    return "redirect:/cart";
 	}
 }
