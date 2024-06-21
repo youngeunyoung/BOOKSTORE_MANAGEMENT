@@ -21,12 +21,18 @@
 				$("#quantity").val(quantity-1);
 			}
 		});
-		// 장바구니 서브밋
+		
+		// 장바구니 서브밋 > 폼 서브밋 될 때 이벤트 발생
 		$("form").on("submit", function(){
 			alert("cartForm submit");
-			this.action="CartAdd";  //CartAddServlet의 맵핑값
+			this.action="/shop/cart/add";  //CartController의 맵핑값
 			this.method="post";
 		});
+		// 장바구니 버튼 클릭 시 폼 서브밋 > 버튼 클릭시에만 이벤트 발생
+       /* $("#cartButton").on("click", function(e){
+            e.preventDefault(); // 기본 동작 방지
+            $("form").submit(); // 폼 서브밋
+        });*/
 		
 	});// ready()
 </script>
@@ -66,9 +72,10 @@
 			      <img src="images/down.PNG" id="down">
 		     
 		      </h6>
-		    <a href="#" class="btn btn-primary mt-3">구매</a>
-		    <button type="submit" class="btn btn-primary mt-3">장바구니</a>
+		    <!-- <a href="#" class="btn btn-primary mt-3">구매</a> -->
+		    <button type="submit" id="cartButton" class="btn btn-primary mt-3">장바구니</a>
 		  </div>
+		  
 		</div>
 	   
 	  </div>

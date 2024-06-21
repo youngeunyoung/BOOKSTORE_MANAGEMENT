@@ -11,21 +11,19 @@ public class CartDTO {
 	int book_id;
 	String member_id;
 	int quantity;
-	LocalDate cartDate;
 	String book_name;
 	int book_price;
 	String bImage;
 	
 	public CartDTO() {}
 
-	public CartDTO(int cart_num, int book_id, String member_id, int quantity, LocalDate cartDate, String book_name,
-			int book_price, String bImage) {
+	public CartDTO(int cart_num, int book_id, String member_id, int quantity, String book_name, int book_price,
+			String bImage) {
 		super();
 		this.cart_num = cart_num;
 		this.book_id = book_id;
 		this.member_id = member_id;
 		this.quantity = quantity;
-		this.cartDate = cartDate;
 		this.book_name = book_name;
 		this.book_price = book_price;
 		this.bImage = bImage;
@@ -63,14 +61,6 @@ public class CartDTO {
 		this.quantity = quantity;
 	}
 
-	public LocalDate getCartDate() {
-		return cartDate;
-	}
-
-	public void setCartDate(LocalDate cartDate) {
-		this.cartDate = cartDate;
-	}
-
 	public String getBook_name() {
 		return book_name;
 	}
@@ -98,9 +88,10 @@ public class CartDTO {
 	@Override
 	public String toString() {
 		return "CartDTO [cart_num=" + cart_num + ", book_id=" + book_id + ", member_id=" + member_id + ", quantity="
-				+ quantity + ", cartDate=" + cartDate + ", book_name=" + book_name + ", book_price=" + book_price
-				+ ", bImage=" + bImage + "]";
+				+ quantity + ", book_name=" + book_name + ", book_price=" + book_price + ", bImage=" + bImage + "]";
 	}
+
+	
 
 	
 	

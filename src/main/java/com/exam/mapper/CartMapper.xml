@@ -8,8 +8,8 @@
    
    <!-- 카트 추가 -->
    <insert id="addCart">
-   	insert into cart(cart_num, book_id, member_id, quantity, cartDate)
-   		values (#{cart_num}, #{book_id}, #{member_id}, #{quantity}, #{cartDate})
+   	insert into cart(cart_num, book_id, member_id, quantity)
+   		values (#{cart_num}, #{book_id}, #{member_id}, #{quantity})
    </insert>
    
    <!-- 카트 삭제 -->
@@ -19,7 +19,7 @@
    </delete>
    
    <!-- 카트 수량 수정 -->
-   <update id="updateCount">
+   <update id="updateCart">
    		update cart
    		set quantity = #{quantity}
    		where cart_num = #{cart_num}
@@ -32,7 +32,7 @@
    			   cart.member_id, 
    			   cart.quantity, 
    			   book.book_name, 
-   			   book.book price,
+   			   book.book_price,
    			   book.bImage
    		from cart 
    		outer join book on cart.book_id = book.book_id

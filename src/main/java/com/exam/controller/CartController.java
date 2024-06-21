@@ -1,6 +1,5 @@
 package com.exam.controller;
 
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -9,11 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.exam.dto.CartDTO;
@@ -38,13 +35,14 @@ public class CartController {
         HttpSession session = request.getSession();
         MemberDTO login = (MemberDTO) session.getAttribute("login");
         if (login == null) {
-            return "5"; // 로그인 안 된 경우
+            return "redirect:/login"; // 로그인 안 된 경우 로그인 페이지로 리디렉션
         }
         
      // 카트 등록
      int result = cartService.addCart(cart);
      		
-     return result + "";
+     // 장바구니 페이지로 리디렉션
+     return "redirect:cart/" + login.getMember_id();
 	}
 	
 	@GetMapping("/cart/{member_id}")
@@ -52,6 +50,12 @@ public class CartController {
 
 		model.addAttribute("cartInfo", cartService.cartList(member_id));
 		
-		return "/cart";
+		return "cart";
+	}
+	
+	@PostMapping("/cart/delete")
+	public String deleteCartPOST(int cart_num) {
+	    cartService.deleteCart(cart_num);
+	    return "redirect:/cart/{member_id}";
 	}
 }

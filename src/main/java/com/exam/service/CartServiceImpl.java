@@ -23,7 +23,8 @@ public class CartServiceImpl implements CartService{
 		CartDTO checkCart = cartMapper.checkCart(cart);
 		
 		if(checkCart != null) {
-		return 2;
+			checkCart.setQuantity(checkCart.getQuantity() + cart.getQuantity());
+		return cartMapper.updateCart(checkCart);
 		}
 		
 		return cartMapper.addCart(cart);
@@ -31,11 +32,11 @@ public class CartServiceImpl implements CartService{
 	
 	@Override
 	public int deleteCart(int cart_num) {
-		return 0;
+		return cartMapper.deleteCart(cart_num);
 		
 	}@Override
 	public int updateCart(CartDTO cart) {
-		return 0;
+		return cartMapper.updateCart(cart);
 	}
 	
 	@Override
@@ -45,7 +46,7 @@ public class CartServiceImpl implements CartService{
 	
 	@Override
 	public CartDTO checkCart(CartDTO cart) {
-		return null;
+		return cartMapper.checkCart(cart);
 	}
 
 }
