@@ -7,10 +7,19 @@
 	
 	$(document).ready(function(){
 	
+	
 		$("#up").on("click", function(){
-			
-			 var quantity = Number.parseInt(  $("#quantity").val() );
-			 $("#quantity").val(quantity+1);
+
+
+		    var gAmount = Number.parseInt($("#gAmount").val());
+		    var currentStock = Number.parseInt($("#currentStock").val());
+		    if (gAmount < currentStock) {
+		        $("#gAmount").val(gAmount+1);
+		    } else {
+		        $("#gAmount").val(currentStock);
+		        alert("현재 재고 수량을 초과하여 더 이상 증가할 수 없습니다.");
+		    }
+
 		});
 
 		$("#down").on("click", function(){
@@ -22,7 +31,6 @@
 			}
 		});
 		
-		// 장바구니 서브밋 > 폼 서브밋 될 때 이벤트 발생
 		$("form").on("submit", function(){
 			alert("cartForm submit");
 			this.action="/shop/cart/add";  //CartController의 맵핑값
@@ -67,7 +75,8 @@
 			 <h6 class="card-text">
 			 
 			      <span class="fw-bold ">주문수량:</span>
-			      <input type="text" name="quantity" value="1" id="quantity">
+			      <input type="text" name="gAmount" value="1" id="gAmount">
+			      <input type="hidden" name="currentStock" value="${booksRetrieve.book_num}" id="currentStock">
 			      <img src="images/up.PNG" id="up"> 
 			      <img src="images/down.PNG" id="down">
 		     
