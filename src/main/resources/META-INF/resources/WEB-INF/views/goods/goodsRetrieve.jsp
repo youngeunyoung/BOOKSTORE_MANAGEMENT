@@ -76,7 +76,7 @@
 			 <h6 class="card-text">
 			 
 			      <span class="fw-bold ">주문수량:</span>
-			      <input type="text" name="gAmount" value="1" id="gAmount">
+			      <input type="text" name="quantity" value="1" id="gAmount">
 			      <input type="hidden" name="currentStock" value="${booksRetrieve.book_num}" id="currentStock">
 			      <img src="images/up.PNG" id="up"> 
 			      <img src="images/down.PNG" id="down">
