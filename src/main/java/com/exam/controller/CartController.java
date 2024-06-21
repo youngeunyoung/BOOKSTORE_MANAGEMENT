@@ -33,7 +33,6 @@ public class CartController {
 	}
 
 	@PostMapping("/cart/add")
-	@ResponseBody
 	public String addCartPOST(CartDTO cart, HttpServletRequest request) {
 		
 		
@@ -49,13 +48,16 @@ public class CartController {
      int result = cartService.addCart(cart);
      		
      // 장바구니 페이지로 리디렉션
-     return "redirect:cart/"+login.getMember_id();
+     return "redirect:/cart";
 	}	
 	
-	@GetMapping("/cart/{member_id}")
-	public String cartPageGET(@PathVariable("member_id") String member_id, Model model) {
-
-		model.addAttribute("cartInfo", cartService.cartList(member_id));
+	@GetMapping("/cart")
+	public String cartPageGET(Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+        MemberDTO login = (MemberDTO) session.getAttribute("login");
+		
+        
+        model.addAttribute("cartInfo", cartService.cartList(login.getMember_id()));
 		
 		return "cart";
 	}

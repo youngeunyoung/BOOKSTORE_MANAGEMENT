@@ -25,8 +25,9 @@ public class CartServiceImpl implements CartService{
 		if(checkCart != null) {
 			checkCart.setQuantity(checkCart.getQuantity() + cart.getQuantity());
 		return cartMapper.updateCart(checkCart);
-		}
-		
+
+		// 현재 재고에 따라서 최대 장바구니 갯수 제한이 들어가야한ㄷ
+		}	
 		return cartMapper.addCart(cart);
 	}
 	

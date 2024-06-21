@@ -7,9 +7,9 @@
  
    
    <!-- 카트 추가 -->
-   <insert id="addCart">
-   	insert into cart(cart_num, book_id, member_id, quantity)
-   		values (#{cart_num}, #{book_id}, #{member_id}, #{quantity})
+   <insert id="addCart" parameterType="CartDTO">
+   	insert into cart(book_id, member_id, quantity)
+   		values (#{book_id}, #{member_id}, #{quantity})
    </insert>
    
    <!-- 카트 삭제 -->
@@ -26,7 +26,7 @@
    </update>
    
    <!-- 카트 목록 -->
-   <select id="cartList" resultType="CartDTO">
+   <select id="cartList" resultType="CartDTO" parameterType="String">
    		select cart.cart_num,
    			   cart.book_id,
    			   cart.member_id, 
@@ -35,7 +35,7 @@
    			   book.book_price,
    			   book.bImage
    		from cart 
-   		outer join book on cart.book_id = book.book_id
+   		left join book on cart.book_id = book.book_id
    		where cart.member_id = #{cart.member_id}
    </select>
    

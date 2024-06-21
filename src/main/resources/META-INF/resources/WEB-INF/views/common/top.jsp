@@ -40,7 +40,7 @@
 	                               <a class="nav-link" href="mypage">mypage</a>
 	                            </li>
 	                            <li class="nav-item">
-	                               <a class="nav-link" href="<c:url value='/shop/cart/${login.member_id}'/>">cartList</a>
+	                               <a class="nav-link" href="cart">cartList</a>
 	                            </li>
 	                        </ul>
                         </c:if>
