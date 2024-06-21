@@ -10,10 +10,28 @@
 	
 		
 		
-		$("form").on("submit", function(){
-			alert("cartForm submit");
-			this.action="/shop/cart/add";  //CartController의 맵핑값
-			this.method="post";
+		$("#up").on("click", function(){
+
+
+		    var gAmount = Number.parseInt($("#gAmount").val());
+		    var currentStock = Number.parseInt($("#currentStock").val());
+		    if (gAmount < currentStock) {
+		        $("#gAmount").val(gAmount+1);
+		    } else {
+		        $("#gAmount").val(currentStock);
+		        alert("현재 재고 수량을 초과하여 더 이상 증가할 수 없습니다.");
+		    }
+
+		});
+
+		$("#down").on("click", function(){
+			var gAmount = Number.parseInt(  $("#gAmount").val() );
+			if(gAmount==1){
+				$("#gAmount").val(1)
+				alert("최소 1개 이상의 상품을 선택하셔야 합니다.");
+			}else{
+				$("#gAmount").val(gAmount-1);
+			}
 		});
 	
 		
