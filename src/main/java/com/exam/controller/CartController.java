@@ -1,6 +1,8 @@
 package com.exam.controller;
 
 
+import java.lang.ProcessBuilder.Redirect;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -12,12 +14,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.exam.dto.CartDTO;
 import com.exam.dto.MemberDTO;
 import com.exam.service.CartService;
 
 @Controller
+@SessionAttributes(names = {"login"})
 public class CartController {
 	
 	Logger logger = LoggerFactory.getLogger(getClass());
@@ -31,6 +35,9 @@ public class CartController {
 	@PostMapping("/cart/add")
 	@ResponseBody
 	public String addCartPOST(CartDTO cart, HttpServletRequest request) {
+		
+		
+		System.out.println(cart.toString());
 		// 로그인 체크
         HttpSession session = request.getSession();
         MemberDTO login = (MemberDTO) session.getAttribute("login");
@@ -42,8 +49,8 @@ public class CartController {
      int result = cartService.addCart(cart);
      		
      // 장바구니 페이지로 리디렉션
-     return "redirect:cart/" + login.getMember_id();
-	}
+     return "redirect:cart/"+login.getMember_id();
+	}	
 	
 	@GetMapping("/cart/{member_id}")
 	public String cartPageGET(@PathVariable("member_id") String member_id, Model model) {
