@@ -65,6 +65,6 @@ public class CartController {
 	@PostMapping("/cart/delete")
 	public String deleteCartPOST(int cart_num) {
 	    cartService.deleteCart(cart_num);
-	    return "redirect:/cart/{member_id}";
+	    return "redirect:/cart";
 	}
 }

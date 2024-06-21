@@ -27,7 +27,7 @@
                         <td>${item.quantity}</td>
                         <td><img src="images/items/${item.bImage}.jpg" width="50" height="50"></td>
                         <td>
-                            <form action="shop/cart/delete" method="post">
+                            <form action="cart/delete" method="post">
                                 <input type="hidden" name="cart_num" value="${item.cart_num}">
                                 <button type="submit">삭제</button>
                             </form>
