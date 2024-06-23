@@ -5,33 +5,39 @@
 <head>
 <meta charset="UTF-8">
 <title>메인홈페이지</title>
-<style type="text/css">
-    .App {
-	  text-align: center;
-	  font-size: 16px;
-	}
-	
-    label, input, button {
-    margin: 10px;
-    padding: 5px;
-    }
-
-	footer {
-	    bottom: 0;
-	    position: absolute;
-	    width: 90%;
-	    height: 40px;
-	}
- </style>
-    <link rel="stylesheet"  href="webjars/bootstrap/5.3.3/css/bootstrap.min.css" >
-	<script src="webjars/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet"  href="webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+<script src="webjars/jquery/3.7.1/jquery.min.js"></script>
+	<style type="text/css">
+	    .Top {
+		width: 100%;
+    	font-size: 16px;
+    	text-align: center;
+		}
+		.Menu {
+		width: 100%;
+    	height: 70px;
+    	font-size: 16px;
+    	text-align: center;
+		}
+		.BookArea {
+		width: 100%;
+    	height: 1000px;
+    	font-size: 16px;
+    	text-align: center;
+		}
+	</style>
 </head>
-<body>
- <div class="App">
-	<jsp:include page="common/top.jsp" flush="true" /><br>
-	<jsp:include page="common/menu.jsp" flush="true" />
-	<hr>
-	<jsp:include page="goods/goodsList2.jsp" flush="true" />
- </div>
-</body>
+	<body>
+	 <div class="Top">
+		<jsp:include page="common/top.jsp" flush="true" />
+	 </div>
+		<br>
+	 <div class="Menu">
+		<jsp:include page="common/menu.jsp" flush="true" />
+	 </div>
+		<hr>
+	 <div class="BookArea">
+		<jsp:include page="goods/goodsList.jsp" flush="true" />
+	 </div>
+	</body>
 </html>

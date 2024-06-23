@@ -23,7 +23,7 @@
 	                               <a class="nav-link" href="login">Login</a>
 	                            </li>
 	                             <li class="nav-item">
-	                               <a class="nav-link" href="signup">signup</a>
+	                               <a class="nav-link" href="signup">SignUp</a>
 	                            </li>
 	                        </ul>
                         </c:if>
@@ -31,16 +31,16 @@
                         <!-- 로그인 된 상태 
                           session.getAttribute("login") 값이 null이 아닌 경우
                         -->
-                         <c:if test="${ ! empty login}">
+                         <c:if test="${!empty login}">
 	                        <ul class="navbar-nav">
 	                            <li class="nav-item">
-	                               <a class="nav-link" href="logout">logout</a>
+	                               <a class="nav-link" href="logout">Logout</a>
 	                            </li>
 	                             <li class="nav-item">
-	                               <a class="nav-link" href="mypage">mypage</a>
+	                               <a class="nav-link" href="mypage">MyPage</a>
 	                            </li>
 	                            <li class="nav-item">
-	                               <a class="nav-link" href="cart">cartList</a>
+	                               <a class="nav-link" href="cart">CartList</a>
 	                            </li>
 	                        </ul>
                         </c:if>
