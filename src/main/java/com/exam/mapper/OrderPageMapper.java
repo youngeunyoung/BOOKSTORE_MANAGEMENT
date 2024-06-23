@@ -9,9 +9,8 @@ import com.exam.dto.OrderPageDTO;
 
 
 @Mapper
-public interface OrderMapper {
+public interface OrderPageMapper {
 
-	public OrderDTO getBooksInfo(int book_id);
-	public void insertOrder(OrderDTO order);
+	public void insertOrderPage(OrderPageDTO orderPageDTO);
 
 }

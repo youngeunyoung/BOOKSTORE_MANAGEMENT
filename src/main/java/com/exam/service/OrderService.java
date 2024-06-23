@@ -10,4 +10,6 @@ public interface OrderService {
 	/* 주문 정보 */
 	public List<OrderDTO> getBooksInfo(List<OrderDTO> orders);
 	
+	/*주문 정보 확인*/
+	public void processOrder(OrderDTO od);
 }

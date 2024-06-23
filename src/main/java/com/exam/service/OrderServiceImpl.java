@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.exam.dto.MemberDTO;
@@ -16,6 +17,7 @@ import com.exam.mapper.OrderMapper;
 @Service
 public class OrderServiceImpl implements OrderService{
 
+	@Autowired
 	OrderMapper orderMapper;
 	
 	
@@ -35,4 +37,7 @@ public class OrderServiceImpl implements OrderService{
 		return result;
 	}
 
+	public void processOrder(OrderDTO od) {
+        orderMapper.insertOrder(od);
+    }
 }
