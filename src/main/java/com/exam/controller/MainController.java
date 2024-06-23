@@ -24,13 +24,12 @@ public class MainController {
 		this.bookService = bookService;
 	}
 
-	@GetMapping("/main")
+	@GetMapping("/main2")
     public String main(@RequestParam(defaultValue = "1") int page,
-                       @RequestParam(defaultValue = "6") int size,
-                       @RequestParam(defaultValue = "1") int session_id,
-                       ModelMap m) {
+            @RequestParam(defaultValue = "6") int size,
+            @RequestParam(defaultValue = "1") int session_id,
+            ModelMap m) {
 		
-
 		int offset = (page - 1) * size;
 		List<BookDTO> booksList = bookService.getBooksBySessionIdPaged(session_id, size, offset);
         int totalBooks = bookService.getBooksCountBySessionId(session_id);
@@ -41,15 +40,6 @@ public class MainController {
         m.addAttribute("totalPages", totalPages);
         m.addAttribute("pageSize", size);
         m.addAttribute("session_id", session_id);
-        return "main";
-    }
-
-	@GetMapping("/main2")
-    public String main(ModelMap m) {
-		
-		List<BookDTO> bookAll = bookService.booksList();
-		System.out.println("======================");
-		m.addAttribute("bookAll", bookAll);
         return "main2";
     }
 	//booksRetrieve?book_id=1

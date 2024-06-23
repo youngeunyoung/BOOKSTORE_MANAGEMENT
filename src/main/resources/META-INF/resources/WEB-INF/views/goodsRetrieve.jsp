@@ -7,17 +7,17 @@
 	$(document).ready(function(){
 		
 		$("#up").on("click", function(){
-			var quantity
-			= Number.parseInt($("#quantity").val());
-			$("#quantity").val(quantity+1);
+			var gAmount
+			= Number.parseInt($("#gAmount").val());
+			$("#gAmount").val(gAmount+1);
 		});
 		$("#down").on("click", function(){
-			var quantity
-			= Number.parseInt($("#quantity").val());
-			if(quantity==1){
-				$("#quantity").val(1);
+			var gAmount
+			= Number.parseInt($("#gAmount").val());
+			if(gAmount==1){
+				$("#gAmount").val(1);
 			}else{
-				$("#quantity").val(quantity-1);
+				$("#gAmount").val(gAmount-1);
 			}
 		});
 		
