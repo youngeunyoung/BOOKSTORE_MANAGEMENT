@@ -75,7 +75,6 @@ public class CartController {
 	
 	@PostMapping("/cart/delete")
 	public String deleteCartPOST(@RequestParam int cart_num) {
-
 	    cartService.deleteCart(cart_num);
 	    return "redirect:/cart";
 	}
@@ -89,14 +88,18 @@ public class CartController {
 	}
 	
 	
-	/*@PostMapping("/order")
-    public String orderFromCartPOST(OrderPageDTO orderPageDTO, HttpServletRequest request) {
+	@PostMapping("/order")
+    public String orderFromCartPOST(OrderPageDTO orderPageDTO, HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         MemberDTO login = (MemberDTO) session.getAttribute("login");
         if (login == null) {
             return "redirect:/login";
         }
+        
+        // 장바구니 정보 조회
+        List<CartDTO> cartItems = cartService.cartList(login.getMember_id());
+        model.addAttribute("cartInfo", cartItems);
 
         return "order";
-    }*/
+    }
 }

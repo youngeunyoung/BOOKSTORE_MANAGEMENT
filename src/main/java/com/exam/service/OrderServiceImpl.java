@@ -37,7 +37,7 @@ public class OrderServiceImpl implements OrderService{
 		return result;
 	}
 
-	public void processOrder(OrderDTO od) {
-        orderMapper.insertOrder(od);
+	public void insertOrder(OrderDTO orderDTO) {
+        orderMapper.insertOrder(orderDTO);
     }
 }

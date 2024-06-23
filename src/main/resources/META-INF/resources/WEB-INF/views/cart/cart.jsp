@@ -31,17 +31,16 @@
     </style>
     
     <script type="text/javascript">
-    function deleteItem(itemId) {
+    function deleteItem(cart_num) {
         const form = document.createElement("form");
         form.method = "post";
-        form.action = "/delete";
+        form.action = "/cart/delete";
         const input = document.createElement("input");
         input.type = "hidden";
-        input.name = "itemId";
-        input.value = itemId;
+        input.name = "cart_num";
+        input.value = cart_num;
         form.appendChild(input);
         document.body.appendChild(form);
-        alert("삭제된 상품 " + itemId);
         form.submit();
     }
     

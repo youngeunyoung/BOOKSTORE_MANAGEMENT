@@ -17,8 +17,8 @@
    
    <!-- 주문 정보 입력 -->
    <insert id="insertOrder" parameterType="com.exam.dto.OrderDTO">
-        insert into orders (orderName, post, addr1, addr2, phone1, phone2, phone3, email1, email2, orderDate, member_id, book_id, quantity, totalPrice)
-        values (#{orderName}, #{post}, #{addr1}, #{addr2}, #{phone1}, #{phone2}, #{phone3}, #{email1}, #{email2}, #{orderDate}, #{member_id}, #{book_id}, #{quantity}, #{totalPrice})
+        insert into orders (orderName, post, addr1, addr2, phone1, phone2, phone3, email1, email2, orderDate<!--  , member_id, book_id, quantity, totalPrice-->)
+        values (#{orderName}, #{post}, #{addr1}, #{addr2}, #{phone1}, #{phone2}, #{phone3}, #{email1}, #{email2}, #{orderDate}<!--  , #{member_id}, #{book_id}, #{quantity}, #{totalPrice}-->)
     </insert>
 </mapper>
 

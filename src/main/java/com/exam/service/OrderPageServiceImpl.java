@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import com.exam.dto.MemberDTO;
+import com.exam.dto.OrderDTO;
 import com.exam.dto.OrderPageDTO;
 import com.exam.mapper.MemberMapper;
 import com.exam.mapper.OrderPageMapper;
@@ -25,6 +26,10 @@ public class OrderPageServiceImpl implements OrderPageService{
 	
 	@Override
 	public void processOrderPage(OrderPageDTO orderPageDTO) {
+		for (OrderDTO orderDTO : orderPageDTO.getOrders()) {
+            orderDTO.initSaleTotal(); // 총 금액 계산
+        }
+		
 		orderPageMapper.insertOrderPage(orderPageDTO);
 	}
 }

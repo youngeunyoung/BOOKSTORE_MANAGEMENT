@@ -6,18 +6,18 @@
 	
 	$(document).ready(function(){
 		
-		$("#up").on("onclick", function(){
-			var gAmount
-			= Number.parseInt($("#gAmount").val());
-			${"#gAmount"}.val(gAmount+1);
+		$("#up").on("click", function(){
+			var quantity
+			= Number.parseInt($("#quantity").val());
+			$("#quantity").val(quantity+1);
 		});
 		$("#down").on("click", function(){
-			var gAmount
-			= Number.parseInt($("#gAmount").val());
-			if(gAmount==1){
-				$("#gAmount").val(1);
+			var quantity
+			= Number.parseInt($("#quantity").val());
+			if(quantity==1){
+				$("#quantity").val(1);
 			}else{
-				$("#gAmount").val(gAmount-1);
+				$("#quantity").val(quantity-1);
 			}
 		});
 		
