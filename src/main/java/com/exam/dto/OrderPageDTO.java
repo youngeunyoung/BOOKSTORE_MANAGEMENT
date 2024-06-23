@@ -7,20 +7,18 @@ import org.apache.ibatis.type.Alias;
 @Alias("OrderPageDTO")
 public class OrderPageDTO {
 
-	public List<OrderDTO> orders;
+    private List<OrderDTO> orders;
 
-	public List<OrderDTO> getOrders() {
-		return orders;
-	}
+    public List<OrderDTO> getOrders() {
+        return orders;
+    }
 
-	public void setOrders(List<OrderDTO> orders) {
-		this.orders = orders;
-	}
+    public void setOrders(List<OrderDTO> orders) {
+        this.orders = orders;
+    }
 
-	@Override
-	public String toString() {
-		return "OrderPageDTO [orders=" + orders + "]";
-	}
-	
-	
+    @Override
+    public String toString() {
+        return "OrderPageDTO [orders=" + orders + "]";
+    }
 }
