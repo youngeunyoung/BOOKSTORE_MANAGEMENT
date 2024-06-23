@@ -5,29 +5,27 @@
 <script type="text/javascript">
     $(document).ready(function(){
     	
-		$("#up").on("click", function(){
+    	$("#up").on("click", function(){
+    	    var quantity = Number.parseInt($("#quantity").val());
+    	    var currentStock = Number.parseInt($("#currentStock").val());
+    	    
+    	    if (quantity < currentStock) {
+    	        $("#quantity").val(quantity + 1);
+    	    } else {
+    	        $("#quantity").val(currentStock);
+    	        alert("현재 재고 수량을 초과하여 더 이상 증가할 수 없습니다.");
+    	    }
+    	});
 
-
-		    var gAmount = Number.parseInt($("#gAmount").val());
-		    var currentStock = Number.parseInt($("#currentStock").val());
-		    if (gAmount < currentStock) {
-		        $("#gAmount").val(gAmount+1);
-		    } else {
-		        $("#gAmount").val(currentStock);
-		        alert("현재 재고 수량을 초과하여 더 이상 증가할 수 없습니다.");
-		    }
-
-		});
-
-		$("#down").on("click", function(){
-			var gAmount = Number.parseInt(  $("#gAmount").val() );
-			if(gAmount==1){
-				$("#gAmount").val(1)
-				alert("최소 1개 이상의 상품을 선택하셔야 합니다.");
-			}else{
-				$("#gAmount").val(gAmount-1);
-			}
-		});
+    	$("#down").on("click", function(){
+    	    var quantity = Number.parseInt($("#quantity").val());
+    	    
+    	    if (quantity == 1) {
+    	        alert("최소 1개 이상의 상품을 선택하셔야 합니다.");
+    	    } else {
+    	        $("#quantity").val(quantity - 1);
+    	    }
+    	});
 
         $("form").on("submit", function(e){
             e.preventDefault(); // 기본 폼 제출 동작을 막습니다.
@@ -77,7 +75,7 @@
                     </h6>
                     <h6 class="card-text">
                         <span class="fw-bold ">주문수량:</span>
-                        <input type="text" name="gAmount" value="1" id="gAmount">
+                        <input type="text" name="quantity" value="1" id="quantity">
                         <input type="hidden" name="currentStock" value="${booksRetrieve.book_num}" id="currentStock">
                         <img src="images/up.PNG" id="up">
                         <img src="images/down.PNG" id="down">
