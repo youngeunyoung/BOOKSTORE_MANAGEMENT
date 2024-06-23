@@ -11,5 +11,5 @@ public interface OrderService {
 	public List<OrderDTO> getBooksInfo(List<OrderDTO> orders);
 	
 	/*주문 정보 확인*/
-	public void processOrder(OrderDTO od);
+	public void insertOrder(OrderDTO orderDTO);
 }

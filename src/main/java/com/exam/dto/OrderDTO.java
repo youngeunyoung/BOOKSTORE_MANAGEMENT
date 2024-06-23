@@ -28,13 +28,16 @@ public class OrderDTO {
 	int quantity;
 	
 	int totalPrice;
+	int totalQuantity;
 	
 	public OrderDTO() {}
+
+	
 
 	public OrderDTO(int order_id, int cart_num, String orderName, String post, String addr1, String addr2,
 			String phone1, String phone2, String phone3, String email1, String email2, LocalDate orderDate,
 			String member_id, int book_id, String book_name, int book_price, String bImage, int quantity,
-			int totalPrice) {
+			int totalPrice, int totalQuantity) {
 		super();
 		this.order_id = order_id;
 		this.cart_num = cart_num;
@@ -55,7 +58,14 @@ public class OrderDTO {
 		this.bImage = bImage;
 		this.quantity = quantity;
 		this.totalPrice = totalPrice;
+		this.totalQuantity = totalQuantity;
 	}
+
+
+
+	
+
+
 
 	public int getOrder_id() {
 		return order_id;
@@ -196,9 +206,19 @@ public class OrderDTO {
 	public int getQuantity() {
 		return quantity;
 	}
+	
+	public int getTotalQuantity() {
+		return totalQuantity;
+	}
 
+
+
+	public void setTotalQuantity(int totalQuantity) {
+		this.totalQuantity = totalQuantity;
+	}
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+		initSaleTotal();
 	}
 
 	public int getTotalPrice() {
