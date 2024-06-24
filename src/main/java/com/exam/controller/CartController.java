@@ -80,12 +80,13 @@ public class CartController {
 	}
 	
 	@PostMapping("/cart/update")
-	public String updateCartPOST(CartDTO cart) {
-		cartService.updateCart(cart);
-		
-		return "redirect:/cart";
-
-	}
+    public String updateCartPOST(@RequestParam int cart_num, @RequestParam int quantity) {
+        CartDTO cart = new CartDTO();
+        cart.setCart_num(cart_num);
+        cart.setQuantity(quantity);
+        cartService.updateCart(cart);
+        return "redirect:/cart";
+    }
 	
 	
 	@PostMapping("/order")

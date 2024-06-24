@@ -4,31 +4,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script type="text/javascript">
 	
-	$(document).ready(function(){
-		
-		$("#up").on("click", function(){
-			var quantity
-			= Number.parseInt($("#quantity").val());
-			$("#quantity").val(quantity+1);
-		});
-		$("#down").on("click", function(){
-			var quantity
-			= Number.parseInt($("#quantity").val());
-			if(quantity==1){
-				$("#quantity").val(1);
-			}else{
-				$("#quantity").val(quantity-1);
-			}
-		});
-		
-		
 	
-		
-		
-		
-		
-	});// ready()
-
 </script>
 <!DOCTYPE html>
 <html>

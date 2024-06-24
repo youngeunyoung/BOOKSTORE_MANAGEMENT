@@ -44,15 +44,15 @@
         form.submit();
     }
     
-    function updateQuantity(cartNum) {
-        const quantityInput = document.querySelector('input[name="quantity_' + cartNum + '"]');
+    function updateQuantity(cart_num) {
+        const quantityInput = document.querySelector('input[name="quantity_' + cart_num + '"]');
         const form = document.createElement("form");
         form.method = "post";
         form.action = "/cart/update";
         const cartNumInput = document.createElement("input");
         cartNumInput.type = "hidden";
         cartNumInput.name = "cart_num";
-        cartNumInput.value = cartNum;
+        cartNumInput.value = cart_num;
         form.appendChild(cartNumInput);
         const quantity = document.createElement("input");
         quantity.type = "hidden";
@@ -68,13 +68,13 @@
         let totalPrice = 0;
         checkboxes.forEach((checkbox) => {
             const cartNum = checkbox.value;
-            const quantityInput = document.querySelector('input[name="quantity_' + cartNum + '"]');
+            const quantityInput = document.querySelector('input[name="quantity_' + cart_num + '"]');
             if (quantityInput) {
                 const priceText = quantityInput.parentElement.nextElementSibling.textContent.trim();
                 const itemPrice = parseInt(priceText.replace(/[^\d]/g, ''), 10) * parseInt(quantityInput.value, 10);
                 totalPrice += itemPrice;
             } else {
-                console.error(`Quantity input for cartNum ${cartNum} not found.`);
+                console.error(`Quantity input for cartNum ${cart_num} not found.`);
             }
         });
         document.getElementById("totalPrice").textContent = "총 금액: " + totalPrice.toLocaleString() + "원";
