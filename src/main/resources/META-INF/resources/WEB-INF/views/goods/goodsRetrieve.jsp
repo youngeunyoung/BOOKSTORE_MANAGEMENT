@@ -4,35 +4,38 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        $("#up").on("click", function(){
-            var quantity = parseInt($("#quantity").val());
-            var currentStock = parseInt($("#currentStock").val());
-            if (quantity < currentStock) {
-                $("#quantity").val(quantity + 1);
-            } else {
-                $("#quantity").val(currentStock);
-                alert("현재 재고 수량을 초과하여 더 이상 증가할 수 없습니다.");
-            }
-        });
+    	
+    	$("#up").on("click", function(){
+    	    var quantity = Number.parseInt($("#quantity").val());
+    	    var currentStock = Number.parseInt($("#currentStock").val());
+    	    
+    	    if (quantity < currentStock) {
+    	        $("#quantity").val(quantity + 1);
+    	    } else {
+    	        $("#quantity").val(currentStock);
+    	        alert("현재 재고 수량을 초과하여 더 이상 증가할 수 없습니다.");
+    	    }
+    	});
 
-        $("#down").on("click", function(){
-            var quantity = parseInt($("#quantity").val());
-            if (quantity > 1) {
-                $("#quantity").val(quantity - 1);
-            } else {
-                alert("최소 1개 이상의 상품을 선택하셔야 합니다.");
-            }
-        });
+    	$("#down").on("click", function(){
+    	    var quantity = Number.parseInt($("#quantity").val());
+    	    
+    	    if (quantity == 1) {
+    	        alert("최소 1개 이상의 상품을 선택하셔야 합니다.");
+    	    } else {
+    	        $("#quantity").val(quantity - 1);
+    	    }
+    	});
 
         $("form").on("submit", function(e){
             e.preventDefault(); // 기본 폼 제출 동작을 막습니다.
-            var quantity = parseInt($("#quantity").val());
+            var gAmount = parseInt($("#gAmount").val());
             var currentStock = parseInt($("#currentStock").val());
-            if (quantity > currentStock) {
+            if (gAmount > currentStock) {
                 alert("선택한 수량이 재고를 초과하였습니다.");
                 return false; // 폼 제출을 중지합니다.
             }
-            alert("장바구니에 추가됩니다."); // 장바구니에 추가되었음을 알립니다.
+            alert("장바구니에 추가됩니다.\n(* 로그인 상태가 아닌 경우 해당 화면으로 이동합니다.)"); // 장바구니에 추가되었음을 알립니다.
             this.submit(); // 폼을 제출합니다.
         });
     });
