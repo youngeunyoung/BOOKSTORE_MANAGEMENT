@@ -70,7 +70,7 @@ public class MemberController {
 		//회원가입서비스호출
 		int n = memberService.memberAdd(dto);
 		
-		return "redirect:main";
+		return "redirect:main2";
 	}
 	
 	

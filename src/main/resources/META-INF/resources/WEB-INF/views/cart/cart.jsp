@@ -31,7 +31,7 @@
     </style>
     
     <script type="text/javascript">
-    function deleteItem(cart_num) {
+    /*function deleteCartPOST(cart_num) {
         const form = document.createElement("form");
         form.method = "post";
         form.action = "/cart/delete";
@@ -42,9 +42,9 @@
         form.appendChild(input);
         document.body.appendChild(form);
         form.submit();
-    }
+    }*/
     
-    function updateQuantity(cart_num) {
+    function updateCartPOST(cart_num) {
         const quantityInput = document.querySelector('input[name="quantity_' + cart_num + '"]');
         const form = document.createElement("form");
         form.method = "post";
@@ -173,10 +173,13 @@
                                 <input type="number" name="quantity_${item.cart_num}" value="${item.quantity}" min="1">
                             </td>
                             <td>
-                                <button type="button" onclick="updateQuantity(${item.cart_num})">변경</button>
+                                <button type="button" onclick="updateCartPOST(${item.cart_num})">변경</button>
                             </td>
                             <td>
-                                <button type="button" onclick="deleteItem(${item.cart_num})">삭제</button>
+                            	<form action="cart/delete" method="post">
+                                <input type="hidden" name="cart_num" value="${item.cart_num}">
+                                <button type="submit">삭제</button>
+                                </form>
                             </td>
                         </tr>
                     </c:forEach>
